@@ -5,6 +5,8 @@
 -------------------------------------------------------
 
 -- 1. Which customers spent the most money?
+-- Purpose: 
+-- Identify the highest-value customers who could be targeted with loyalty programs os personalized marketing campaigns.
 SELECT 
 	c.customer_id, 
 	c.first_name,
@@ -20,6 +22,7 @@ GROUP BY
 ORDER BY total_spent DESC;
 
 -- 2. Which customers rented the most movies?
+-- Purpose: Analyze customer engagement and identify th emost active customers based on rental frequency.
 SELECT 
 	c.customer_id, 
 	c.first_name,
@@ -35,6 +38,7 @@ GROUP BY
 ORDER BY total_rentals DESC;
 
 -- 3. Which customers never rented a movie?
+-- Purpose: FInd inactive customers who may require re-engagement campaigns or pormotional offers.
 SELECT 
 	c.customer_id, 
 	c.first_name,
@@ -45,6 +49,7 @@ LEFT JOIN rental r
 WHERE r.rental_id IS NULL;
 
 -- 4. Which customers never made a payment?
+-- Purpose: Detected customers with no recorded payments and verify potential potential data quality issues or inactive accounts.
 SELECT 
 	c.customer_id, 
 	c.first_name,
@@ -54,17 +59,17 @@ LEFT JOIN payment p
   ON c.customer_id = p.customer_id
 WHERE p.payment_id IS NULL;
 
--- 5. Which customers never made a payment?
+-- 5. What is the average payment amount per customer?
+-- Purpose: Measure customer spending patterns and compare average transaction values across the customer base.
 SELECT 
-	c.customer_id, 
-	c.first_name,
-	c.last_name
-FROM customer c
-LEFT JOIN payment p
-  ON c.customer_id = p.customer_id
-WHERE p.payment_id IS NULL;
+	customer_id, 
+	AVG(amount) AS average_payment
+FROM payment
+GROUP BY customer_id
+ORDER BY average_payment DESC;
 
--- 6. Which movie rating are most common?
+-- 6. Which movie rating are the most common?
+-- Purpose:  Understand the distribution of movie ratings available in the catalog.
 SELECT
 	rating,
 COUNT(*) AS total_movies
@@ -73,6 +78,7 @@ GROUP BY rating
 ORDER BY total_movies DESC;
 
 --7. Classify movies based on their duration.
+-- Purpose: Categorize movies into duration groups for reporting and further business analysis.
 SELECT 
 	title,
 	length,
@@ -84,6 +90,7 @@ END AS movie_length
 FROM film;
 
 -- 8. Clasify customers based on total spending.
+-- Purpose: Divide customers into value segments to support marketing and customer retention strategies.
 SELECT
 	c.customer_id,
 	c.first_name,
@@ -103,7 +110,8 @@ GROUP BY
 	c.last_name
 ORDER BY total_spent DESC;
 
--- 9. Clasify customers based on the numbers of rentals.
+-- 9. How can customers be segmented based on rental activity?
+-- Purpose: Classify customers according to their rental frequency to better understand customer behaviour.
 SELECT
 	c.customer_id,
 	c.first_name,
@@ -124,6 +132,7 @@ GROUP BY
 ORDER BY total_rentals DESC;
 
 -- 10. Which movies have never been rented?
+-- Purpose: Identify underperforming titles that may require promotional actions or catalog review.
 SELECT 
 	f.title
 FROM film f
@@ -133,7 +142,8 @@ LEFT JOIN rental r
   ON i.inventory_id = r.inventory_id
 WHERE r.rental_id IS NULL;
 
--- 11. WHich mocie categories generate the highest revenue?
+-- 11. Which movie categories generate the highest revenue?
+--Purpose: Determine the most profitable categories to support content acquisition and business decisions.
 SELECT
 	c.name AS category,
 	SUM(p.amount) AS total_revenue
@@ -150,6 +160,7 @@ GROUP BY c.name
 ORDER BY total_revenue DESC;
 
 --12. Top 10 movies generating the highest revenue 
+-- Purpose Identify top-performing movies and evaluate their contribution to total revenue.
 SELECT
 	f.title,
 	SUM(p.amount) AS total_revenue
@@ -164,7 +175,8 @@ GROUP BY f.title
 ORDER BY total_revenue DESC
 LIMIT 10;
 
---13. Which customers soent more than average customer?
+--13.  Which customers spend more than the average customer?
+-- Purpose: Identify above-average customers who may represent the company's most valuable customer segment.
 WITH customer_spending AS (
   SELECT
     c.customer_id,
