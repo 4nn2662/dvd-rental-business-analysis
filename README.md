@@ -2,15 +2,15 @@
 
 **Project Overview**
 
-This project is based on the PostgreSQL DVD Rental sample database and demonstrates SQL skills used in business data analysis.
-The main goal of the project is to answer common business questions related to customer behavior, payments, rentals, and movie performance while practicing SQL from a data analyst's perspective.
-
+This project is based on the PostgreSQL DVD Rental sample database and demonstrates SQL skills from a business and data analysis perspective.
+The main objective was to answer common business questions related to customer behavior, revenue, rentals, and movie performance while practicing SQL in realistic analytical scenarios.
+As the next stage of the project, the data was also visualized in Power BI to create an interactive business dashboard.
 
 **Technologies Used**
 
 - PostgreSQL
 - SQL
-- Power BI (dashboard planned as the next stage of the project)
+- Power BI 
 
 
 **Project Goals**
