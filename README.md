@@ -98,7 +98,7 @@ The project also includes an interactive Power BI dashboard built using the DVD 
 
 ![Dashboard Preview](powerbi/dashboard_preview.png)
 
-
+The dashboard provides an interactive overview of customer activity, revenue performance, and rental trends using the DVD Rental dataset
 ---
 
 **Motivation**
@@ -111,3 +111,13 @@ My goal is to continue developing as a Data Analyst by combining SQL, Power BI, 
 I created this project to strengthen my SQL skills and apply them to practical business scenarios.
 
 My goal is to continue developing as a Data Analyst by combining SQL, Power BI, and Python with business-oriented thinking and data-driven decision making.
+
+**Key Business Insights**
+
+Based on the analysis:
+
+- High-value customers can be identified for loyalty programs.
+- Customer spending varies significantly across the customer base.
+- Movie categories differ in their revenue contribution.
+- Customer segmentation can support targeted marketing strategies.
+- Rental activity can be used to distinguish frequent and occasional customers.
