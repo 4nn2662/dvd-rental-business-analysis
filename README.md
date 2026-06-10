@@ -23,7 +23,7 @@ As the next stage of the project, the data was visualized in Power BI to create 
 dvd-rental-business-analysis/
 
 - README.md
-  - business_questions.sql
+  - business_analysis.sql
   - powerbi/
         - dvd_rental_dashboard.pbix
         - dashboard_preview.png
@@ -96,7 +96,8 @@ The project also includes an interactive Power BI dashboard built using the DVD 
 
 **Dashboard Preview**
 
-(Add dashboard screenshot here.)
+![Dashboard Preview](powerbi/dashboard_preview.png)
+
 
 ---
 
