@@ -1,12 +1,12 @@
 -- Author: Anna Mazur
 --Description
---Collection of bussiness-oriented SQL queries created to analyse customer behaviour, revenue and rental activitiy using the DVD Rental sample database.
+--Collection of business-oriented SQL queries created to analyse customer behaviour, revenue and rental activity using the DVD Rental sample database.
 
 -------------------------------------------------------
 
 -- 1. Which customers spent the most money?
 -- Purpose: 
--- Identify the highest-value customers who could be targeted with loyalty programs os personalized marketing campaigns.
+-- Identify the highest-value customers who could be targeted with loyalty programs or personalized marketing campaigns.
 SELECT 
 	c.customer_id, 
 	c.first_name,
@@ -22,7 +22,7 @@ GROUP BY
 ORDER BY total_spent DESC;
 
 -- 2. Which customers rented the most movies?
--- Purpose: Analyze customer engagement and identify th emost active customers based on rental frequency.
+-- Purpose: Analyze customer engagement and identify the most active customers based on rental frequency.
 SELECT 
 	c.customer_id, 
 	c.first_name,
@@ -38,7 +38,7 @@ GROUP BY
 ORDER BY total_rentals DESC;
 
 -- 3. Which customers never rented a movie?
--- Purpose: FInd inactive customers who may require re-engagement campaigns or pormotional offers.
+-- Purpose: Find inactive customers who may require re-engagement campaigns or promotional offers.
 SELECT 
 	c.customer_id, 
 	c.first_name,
@@ -89,7 +89,7 @@ CASE
 END AS movie_length
 FROM film;
 
--- 8. Clasify customers based on total spending.
+-- 8. Classify customers based on total spending.
 -- Purpose: Divide customers into value segments to support marketing and customer retention strategies.
 SELECT
 	c.customer_id,
