@@ -155,7 +155,7 @@ INNER JOIN inventory i
 INNER JOIN film_category fc
 	ON i.film_id = fc.film_id
 INNER JOIN category c
-	ON fc.film_id = c.category_id
+	ON fc.category_id = c.category_id
 GROUP BY c.name
 ORDER BY total_revenue DESC;
 
